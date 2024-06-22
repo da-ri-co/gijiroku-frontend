@@ -4,15 +4,14 @@ import React, {useEffect, useState} from "react";
 
 import {Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow} from "@/components/ui/table";
 import {fetchAllDiscussions} from "@/lib/fetchDiscuss";
-import {Discussions} from "@/model/discussions";
+import {AbstractOfDiscussion} from "@/model/abstractOfDiscussion";
 
 function Home() : React.JSX.Element {
-  const [discussionList, setDiscussionList] = useState<Discussions[]>([]);
+  const [discussionList, setDiscussionList] = useState<AbstractOfDiscussion[]>([]);
   useEffect(() => {
     const fetchDiscussions = async ():Promise<void> => {
-      const res = await fetchAllDiscussions();
+      const res :AbstractOfDiscussion[] = await fetchAllDiscussions();
       setDiscussionList(res);
-      console.log(res);
     };
     fetchDiscussions();
   }, []);
@@ -32,7 +31,7 @@ function Home() : React.JSX.Element {
           </TableHeader>
           <TableBody>
             {
-              discussionList.map((discussion: Discussions) => (
+              discussionList.map((discussion: AbstractOfDiscussion) => (
               <TableRow key={discussion.id}>
                 <TableCell className="font-medium">{discussion.guild_id}</TableCell>
                 <TableCell>{discussion.start_time}</TableCell>
