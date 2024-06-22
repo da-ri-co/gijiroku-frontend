@@ -13,7 +13,7 @@ function Home() : React.JSX.Element {
       const res :AbstractOfDiscussion[] = await fetchAllDiscussions();
       setDiscussionList(res);
     };
-    fetchDiscussions();
+    fetchDiscussions().then(r => r);
   }, []);
 
   return (
