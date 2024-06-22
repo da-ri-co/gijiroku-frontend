@@ -1,5 +1,8 @@
 import { API_URL } from '@/lib/utils';
-import {AbstractOfDiscussion, DetailOfDiscussion} from '@/model/abstractOfDiscussion';
+import {
+  AbstractOfDiscussion,
+  DetailOfDiscussion,
+} from '@/model/abstractOfDiscussion';
 
 export function fetchAllDiscussions(): Promise<AbstractOfDiscussion[]> {
   const url: string = `${API_URL}/discussions/all`;

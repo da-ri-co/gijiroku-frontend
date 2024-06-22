@@ -7,7 +7,7 @@ export type AbstractOfDiscussion = {
 };
 
 export type DetailOfDiscussion = {
-  key:  number;
+  key: number;
   speaker_name: string;
   content: string;
-}
+};

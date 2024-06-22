@@ -20,7 +20,7 @@ function Discussion() :React.JSX.Element {
   }, [id]);
 
   return (
-    <div className="">
+    <div>
       <div className="flex items-center justify-center max-w-lg">
         <Table>
           <TableCaption>会話詳細</TableCaption>

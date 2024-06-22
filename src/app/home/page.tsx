@@ -17,7 +17,7 @@ function Home() : React.JSX.Element {
   }, []);
 
   return (
-    <div className="">
+    <div>
       <div className="flex items-center justify-center max-w-lg">
         <Table>
           <TableCaption>会話リスト</TableCaption>
