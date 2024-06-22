@@ -1,18 +1,19 @@
 "use client";
 
-import {useParams} from "next/navigation";
+import {useParams, useRouter} from "next/navigation";
 import React, {useEffect, useState} from "react";
 
 import {Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow} from "@/components/ui/table";
 import {fetchDiscussionById} from "@/lib/fetchDiscuss";
 import {DetailOfDiscussion} from "@/model/abstractOfDiscussion";
 
-function Discussion() :React.JSX.Element {
+function Discussion(): React.JSX.Element {
+  const router = useRouter();
   const [discuss, setDiscuss] = useState<DetailOfDiscussion[]>([]);
-  const {id} : {id: string} = useParams<{id: string}>();
-  useEffect(() :void => {
-    const fetchDiscuss = async () :Promise<void> => {
-      const res :DetailOfDiscussion[] = await fetchDiscussionById(id);
+  const {id}: { id: string } = useParams<{ id: string }>();
+  useEffect((): void => {
+    const fetchDiscuss = async (): Promise<void> => {
+      const res: DetailOfDiscussion[] = await fetchDiscussionById(id);
       setDiscuss(res);
     }
 
@@ -20,16 +21,23 @@ function Discussion() :React.JSX.Element {
   }, [id]);
 
   return (
-    <div>
-      <div className="flex items-center justify-center max-w-lg">
+    <div className="bg-white">
+      <div className="h-screen w-screen mt-6 p-6">
+        <button
+          className="text-blue"
+          onClick={(): void => {
+            router.push(`/home`);
+          }}>
+          {" < 一覧へ戻る "}
+        </button>
         <Table>
           <TableCaption>会話詳細</TableCaption>
-          <TableHeader>
-            <TableRow>
-              <TableHead className="w-[100px]">時間</TableHead>
-              <TableHead>話者名</TableHead>
-              <TableHead>内容</TableHead>
-            </TableRow>
+            <TableHeader>
+              <TableRow>
+                <TableHead className="w-[100px]">時間</TableHead>
+                <TableHead>話者名</TableHead>
+                <TableHead>内容</TableHead>
+              </TableRow>
           </TableHeader>
           <TableBody>
             {
@@ -45,7 +53,7 @@ function Discussion() :React.JSX.Element {
         </Table>
       </div>
     </div>
-  )
+  );
 }
 
 export default Discussion;
