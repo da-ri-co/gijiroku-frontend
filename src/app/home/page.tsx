@@ -44,7 +44,7 @@ function Home() : React.JSX.Element {
                 <TableCell className="font-medium">{discussion.guild_id}</TableCell>
                 <TableCell>{discussion.start_time}</TableCell>
                 <TableCell>{discussion.title}</TableCell>
-                <TableCell className="text-right">{discussion.abst}</TableCell>
+                <TableCell>{discussion.abst}</TableCell>
                 <TableCell>
                   <button
                     className="text-blue-500"
