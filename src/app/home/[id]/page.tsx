@@ -34,16 +34,14 @@ function Discussion(): React.JSX.Element {
           <TableCaption>会話詳細</TableCaption>
             <TableHeader>
               <TableRow>
-                <TableHead className="w-[100px]">時間</TableHead>
                 <TableHead>話者名</TableHead>
                 <TableHead>内容</TableHead>
               </TableRow>
           </TableHeader>
           <TableBody>
             {
-              discuss.map((detail: DetailOfDiscussion) => (
-                <TableRow key={detail.key}>
-                  <TableCell className="font-medium">{detail.key}</TableCell>
+              discuss.map((detail: DetailOfDiscussion, i) => (
+                <TableRow key={i}>
                   <TableCell>{detail.speaker_name}</TableCell>
                   <TableCell>{detail.content}</TableCell>
                 </TableRow>
